@@ -2,7 +2,7 @@ var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
 
-var trex, trex_running, trex_collided;
+var trex, trexRunning, trex_collided;
 var ground, invisibleGround, groundImage;
 
 var cloudsGroup, cloudImage;
@@ -13,7 +13,7 @@ var gameOverImg,restartImg
 var jumpSound , checkPointSound, dieSound
 
 function preload(){
-  trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
+  trexRunning = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadAnimation("trex_collided.png");
   
   groundImage = loadImage("ground2.png");
@@ -41,7 +41,7 @@ function setup() {
 
   trex = createSprite(50,180,20,50);
   
-  trex.addAnimation("running", trex_running);
+  trex.addAnimation("running", trexRunning);
   trex.addAnimation("collided", trex_collided);
   
 
@@ -87,7 +87,7 @@ function draw() {
     gameOver.visible = false;
     restart.visible = false;
     //change the trex animation
-      trex.changeAnimation("running", trex_running);
+      trex.changeAnimation("running", trexRunning);
     
     ground.velocityX = -(4 + 3* score/100)
     //scoring
